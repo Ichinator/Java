@@ -46,6 +46,30 @@ public class Drawer {
 	public void setAnimation(boolean animation) {
 		this.animation = animation;
 	}
+
+	/**
+
+	 * Draw a rect
+
+	 * @param hauteur
+
+	 * 			height of the rect (int)
+
+	 * @param largeur
+
+	 * 			width of the rect (int)
+
+	 * @param animate
+
+	 * 			whether the drawing should be animated or not (boolean)
+
+	 * @param bordure
+
+	 * 			the bordure character
+
+	 *
+
+	 */
 	
 public void rectangle() {
 	for (int i = 0; i < hauteur; i++) {
@@ -68,6 +92,20 @@ public void rectangle() {
 	}
 }
 	
+/**
+
+ * Draw a reverse triangle
+
+ * @param hauteur
+
+ * 			height of the triangle (int)
+
+ * @param largeur
+
+ * 			width of the triangle (int)
+
+ */
+	
 	public void triangleInverse() {
 		for (int i = 0; i < hauteur; i++) {
 			List<String> list = new ArrayList<String>();
@@ -77,6 +115,20 @@ public void rectangle() {
 			System.out.println(list);
 		}
 	}
+	
+	/**
+
+	 * Draw a triangle
+
+	 * @param hauteur
+
+	 * 			height of the triangle (int)
+
+	 * @param largeur
+
+	 * 			width of the triangle (int)
+
+	 */
 	
 	public void triangle() {
 		for (int i = hauteur; i > 0; i--) {
@@ -95,6 +147,30 @@ public void rectangle() {
 	public void setBordure(String bordure) {
 		this.bordure = bordure;
 	}
+	
+	/**
+
+	 * Ask user for parameters
+
+	 * @param hauteur
+
+	 * 			height(int)
+
+	 * @param largeur
+
+	 * 			width(int)
+
+	 * @param animate
+
+	 * 			whether the drawing should be animated or not (boolean)
+
+	 * @param bordure
+
+	 * 			the bordure character
+
+	 *
+
+	 */
 	
 	// Données à passer au système
 	public void dimension() {
