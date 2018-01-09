@@ -8,11 +8,9 @@ public class Main {
 		point.display();*/
 		
 		Drawer draw = new Drawer(0, 0);
-		
 		draw.dimension();
 		draw.rectangle();
-		draw.triangle();
-		draw.triangleInverse();
-		
+		/*draw.triangle();
+		draw.triangleInverse();*/		
 	}
 }

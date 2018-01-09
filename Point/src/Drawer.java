@@ -6,6 +6,8 @@ public class Drawer {
 	private int hauteur;
 	private int largeur;
 	private String signe;
+	private String bordure;
+	private boolean animation;
 	
 	public Drawer(int hauteur, int largeur) {
 		this.hauteur = hauteur;
@@ -37,15 +39,34 @@ public class Drawer {
 		
 	}
 	
-	public void rectangle() {
-		for (int i = 0; i < hauteur; i++) {
-			List<String> list = new ArrayList<String>();
-			for (int j = 0; j < largeur; j++) {
-				list.add(signe);
+	public boolean isAnimation() {
+		return animation;
+	}
+
+	public void setAnimation(boolean animation) {
+		this.animation = animation;
+	}
+	
+public void rectangle() {
+	for (int i = 0; i < hauteur; i++) {
+		for(int j = 0; j < largeur; j++) {
+			// Condition if pour mettre en place la bordure interne 
+			if (i == 0 || j == 0 || i == hauteur - 1 || j == largeur - 1) {
+				System.out.print(bordure);
+			}else {
+				System.out.print(signe);
 			}
-			System.out.println(list);
+		}
+		System.out.println();
+		if (animation) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
+}
 	
 	public void triangleInverse() {
 		for (int i = 0; i < hauteur; i++) {
@@ -67,6 +88,15 @@ public class Drawer {
 		}
 	}
 	
+	public String getBordure() {
+		return bordure;
+	}
+
+	public void setBordure(String bordure) {
+		this.bordure = bordure;
+	}
+	
+	// Données à passer au système
 	public void dimension() {
 		Scanner reader = new Scanner(System.in);
 		
@@ -78,11 +108,20 @@ public class Drawer {
 		
 		System.out.println("Donnez un signe: ");
 		String nouveauSigne = reader.next();
+		
+		System.out.println("Donnez un signe pour la bordure: ");
+		String nouvelleBordure = reader.next();
+		
+		System.out.println("Tapez true pour animer sinon tapez autre chose: ");
+		boolean nouvelleAnimation = reader.hasNextBoolean();
 				
 		reader.close(); 
-		
 		setHauteur(nouvelleHauteur);
 		setLargeur(nouvelleLargeur);
 		setSigne(nouveauSigne);
+		setBordure(nouvelleBordure);
+		setAnimation(nouvelleAnimation);
 	}
+
+	
 }
