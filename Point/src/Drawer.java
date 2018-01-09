@@ -224,6 +224,9 @@ public void Maison() {
 	 * @param bordure
 
 	 * 			the bordure character
+	 * 
+	 * @param dureeAnimation
+	 * 			Ask the user to enter an animation duration value if he wants an animation
 	 * @return 
 
 	 *
@@ -261,7 +264,11 @@ public void Maison() {
 		setBordure(nouvelleBordure);
 		setAnimation(nouvelleAnimation);
 	}
-	
+	/**
+	 * Ask the user to enter an animation duration value if he wants an animation
+	 * @param nouvelleDureeAnimation 
+	 * 				animation duration
+	 */
 	public void dureeAnimation() {
 		Scanner reader = new Scanner(System.in);
 		System.out.println("Entrez la durée de l'animation: ");
