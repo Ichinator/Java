@@ -9,7 +9,7 @@ public class Main {
 		
 		Drawer draw = new Drawer(0, 0);
 		draw.dimension();
-		draw.rectangle();
+		draw.Maison();
 		/*draw.triangle();
 		draw.triangleInverse();*/		
 	}

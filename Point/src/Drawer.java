@@ -8,6 +8,7 @@ public class Drawer {
 	private String signe;
 	private String bordure;
 	private boolean animation;
+	private int dureeAnimation;
 	
 	public Drawer(int hauteur, int largeur) {
 		this.hauteur = hauteur;
@@ -46,6 +47,22 @@ public class Drawer {
 	public void setAnimation(boolean animation) {
 		this.animation = animation;
 	}
+	
+	public String getBordure() {
+		return bordure;
+	}
+
+	public void setBordure(String bordure) {
+		this.bordure = bordure;
+	}
+	
+	public int getDureeAnimation() {
+		return dureeAnimation;
+	}
+
+	public void setDureeAnimation(int dureeAnimation) {
+		this.dureeAnimation = dureeAnimation;
+	}
 
 	/**
 
@@ -77,14 +94,16 @@ public void rectangle() {
 			// Condition if pour mettre en place la bordure interne 
 			if (i == 0 || j == 0 || i == hauteur - 1 || j == largeur - 1) {
 				System.out.print(bordure);
+				System.out.print(" ");
 			}else {
 				System.out.print(signe);
+				System.out.print(" ");
 			}
 		}
 		System.out.println();
 		if (animation) {
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(dureeAnimation);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -140,14 +159,52 @@ public void rectangle() {
 		}
 	}
 	
-	public String getBordure() {
-		return bordure;
+/*public void pyramide() {
+	for (int i = 0; i < hauteur; i++) {
+		for (int j = 0; j < largeur; j++) {
+			if () {
+				System.out.print(" ");
+			}else {
+				System.out.print(signe);
+			}
+		}
+		System.out.println();
+		if (animation) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
+}*/
 
-	public void setBordure(String bordure) {
-		this.bordure = bordure;
-	}
-	
+public void test () {;
+    int i, j;
+    for(i=0;i<hauteur;i++) {
+      for(j=0;j<hauteur;j++) {
+        if((i+j)>hauteur) {
+          System.out.print(signe);
+          System.out.print(" ");
+        } else {
+          System.out.print(" ");
+        }
+      }
+      System.out.println();
+      if (animation) {
+			try {
+				Thread.sleep(dureeAnimation);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+      }
+}
+
+public void Maison() {
+	test();
+	rectangle();
+}
 	/**
 
 	 * Ask user for parameters
@@ -167,6 +224,7 @@ public void rectangle() {
 	 * @param bordure
 
 	 * 			the bordure character
+	 * @return 
 
 	 *
 
@@ -190,6 +248,11 @@ public void rectangle() {
 		
 		System.out.println("Tapez true pour animer sinon tapez autre chose: ");
 		boolean nouvelleAnimation = reader.hasNextBoolean();
+		
+		
+		if(nouvelleAnimation) {
+			dureeAnimation();
+		}
 				
 		reader.close(); 
 		setHauteur(nouvelleHauteur);
@@ -198,6 +261,12 @@ public void rectangle() {
 		setBordure(nouvelleBordure);
 		setAnimation(nouvelleAnimation);
 	}
-
 	
+	public void dureeAnimation() {
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Entrez la durée de l'animation: ");
+		int nouvelleDureeAnimation = reader.nextInt();
+		reader.close();
+		setDureeAnimation(nouvelleDureeAnimation);
+	}
 }
